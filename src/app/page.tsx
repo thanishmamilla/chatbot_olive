@@ -251,7 +251,7 @@ export default function Home() {
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', width: '100%' }}>
           <div className="brand">
             <div className="brand-logo"></div>
-            <h1>AetherChat</h1>
+            <h1>Samvada</h1>
           </div>
           
           <button onClick={handleClearChat} className="new-chat-btn">
@@ -340,7 +340,7 @@ export default function Home() {
             messages.map((msg, index) => (
               <div key={index} className={`message ${msg.role}`}>
                 <div className="message-meta">
-                  {msg.role === 'user' ? 'You' : 'Aether'}
+                  {msg.role === 'user' ? 'You' : 'Samvada'}
                 </div>
                 <div className="message-bubble">
                   {formatText(msg.text)}
@@ -385,7 +385,7 @@ export default function Home() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask Aether something..."
+              placeholder="Ask Samvada something..."
               rows={1}
               required
             />

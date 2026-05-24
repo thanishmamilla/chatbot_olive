@@ -1,23 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
 /* Custom CSS Variables for Design Palette */
 :root {
-  --bg-primary: #0b0f19;
-  --bg-secondary: #111827;
-  --bg-sidebar: #0f172a;
+  --bg-primary: #080a10;
+  --bg-secondary: #0d1017;
+  --bg-sidebar: #07090e;
   
-  --glass-bg: rgba(30, 41, 59, 0.4);
-  --glass-border: rgba(255, 255, 255, 0.06);
-  --glass-hover: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(20, 27, 43, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.04);
+  --glass-hover: rgba(255, 255, 255, 0.07);
   
-  --accent-color: #6366f1; /* Indigo */
-  --accent-glow: rgba(99, 102, 241, 0.3);
-  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+  --accent-color: #d97706; /* Sanskrit Gold */
+  --accent-glow: rgba(217, 119, 6, 0.15);
+  --accent-gradient: linear-gradient(135deg, #fbbf24 0%, #b45309 100%);
   
-  --text-primary: #f3f4f6;
+  --text-primary: #f9fafb;
   --text-secondary: #9ca3af;
   --text-muted: #6b7280;
   
-  --message-user-bg: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%);
-  --message-bot-bg: rgba(30, 41, 59, 0.6);
+  --message-user-bg: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  --message-bot-bg: rgba(20, 27, 43, 0.6);
 }
 
 /* Reset and Base Styles */
@@ -30,9 +32,10 @@
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   height: 100vh;
   overflow: hidden;
+  letter-spacing: -0.01em;
 }
 
 /* Main Container Layout */
@@ -353,7 +356,7 @@ body {
   background: var(--message-user-bg);
   color: #ffffff;
   border-bottom-right-radius: 4px;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.15);
 }
 
 .message.bot .message-bubble {
@@ -551,12 +554,12 @@ body {
   justify-content: center;
   transition: all 0.2s ease;
   flex-shrink: 0;
-  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 2px 10px rgba(217, 119, 6, 0.25);
 }
 
 .send-btn:hover {
   transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
 }
 
 .send-btn:active {
@@ -590,12 +593,12 @@ body {
   gap: 0.5rem;
   transition: all 0.2s ease;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.15);
 }
 
 .new-chat-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.3);
 }
 
 .new-chat-btn:active {
@@ -668,9 +671,9 @@ body {
 }
 
 .session-item.active {
-  background-color: rgba(99, 102, 241, 0.15);
+  background-color: rgba(217, 119, 6, 0.12);
   border-color: var(--accent-color);
-  box-shadow: 0 0 10px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 10px rgba(217, 119, 6, 0.05);
 }
 
 .session-icon {
@@ -736,7 +739,7 @@ body {
 .nav-link.active {
   color: #ffffff;
   background: var(--accent-gradient);
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.2);
 }
 
 /* Dashboard Workspace styles */
@@ -820,7 +823,7 @@ body {
 
 .kpi-card:hover {
   border-color: var(--accent-color);
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
+  box-shadow: 0 4px 20px rgba(217, 119, 6, 0.08);
   transform: translateY(-2px);
 }
 
@@ -828,7 +831,7 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background-color: rgba(99, 102, 241, 0.1);
+  background-color: rgba(217, 119, 6, 0.1);
   color: var(--accent-color);
   display: flex;
   align-items: center;
@@ -967,9 +970,9 @@ body {
 }
 
 .badge.provider {
-  background-color: rgba(99, 102, 241, 0.1);
-  color: #818cf8;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  background-color: rgba(217, 119, 6, 0.08);
+  color: #fbbf24;
+  border: 1px solid rgba(217, 119, 6, 0.15);
 }
 
 /* Responsiveness */

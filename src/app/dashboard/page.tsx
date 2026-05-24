@@ -112,7 +112,7 @@ export default function Dashboard() {
       <header className="chat-header" style={{ width: '100%', borderBottom: '1px solid var(--glass-border)' }}>
         <div className="status-indicator">
           <span className="brand-logo" style={{ width: '20px', height: '20px', borderRadius: '4px' }}></span>
-          <span className="status-text" style={{ fontWeight: 600 }}>AetherChat Analytics</span>
+          <span className="status-text" style={{ fontWeight: 600 }}>Samvada Analytics</span>
         </div>
         <div className="header-nav">
           <Link href="/" className="nav-link">Chat</Link>
