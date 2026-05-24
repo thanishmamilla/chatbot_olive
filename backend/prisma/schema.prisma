@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ChatSession {
+  id        String        @id @default(uuid())
+  title     String
+  createdAt DateTime      @default(now()) @map("created_at")
+  messages  ChatMessage[]
+
+  @@map("chat_sessions")
+}
+
+model ChatMessage {
+  id        String      @id @default(uuid())
+  sessionId String      @map("session_id")
+  role      String      // "user" | "bot"
+  text      String
+  createdAt DateTime    @default(now()) @map("created_at")
+  session   ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@map("chat_messages")
+}
+
+model LlmInferenceLog {
+  id               String   @id @default(uuid())
+  sessionId        String   @map("session_id")
+  historyCount     Int      @default(0) @map("history_count")
+  
+  provider         String
+  modelName        String   @map("model_name")
+  
+  latencyMs        Int      @map("latency_ms")
+  startedAt        DateTime @map("started_at")
+  endedAt          DateTime @map("ended_at")
+  
+  status           String   // "success" | "error"
+  errorMessage     String?  @map("error_message")
+  
+  promptTokens     Int      @default(0) @map("prompt_tokens")
+  candidatesTokens Int      @default(0) @map("candidates_tokens")
+  totalTokens      Int      @default(0) @map("total_tokens")
+  
+  promptContent    String   @map("prompt_content")
+  responseContent  String?  @map("response_content")
+  
+  clientIp         String?  @map("client_ip")
+  userAgent        String?  @map("user_agent")
+  
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  @@index([sessionId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("llm_inference_logs")
+}
