@@ -11,12 +11,7 @@ export interface LlmRequestMetadata {
 export class LlmLoggerWrapper {
   private static readonly logger = new Logger('LlmLoggerWrapper');
 
-  /**
-   * Wraps an LLM call to capture inference metadata and log it to the console in near real-time.
-   * 
-   * @param meta Metadata about the prompt request
-   * @param fn The actual LLM API invocation promise factory
-   */
+  
   static async wrapCall<T extends { response: any }>(
     meta: LlmRequestMetadata,
     fn: () => Promise<T>
@@ -76,7 +71,7 @@ export class LlmLoggerWrapper {
                   JSON.stringify(logPayload, null, 2) + 
                   '\n======================================');
 
-      // Send the log payload to the Ingestion API endpoint
+      
       const port = process.env.PORT || 3001;
       fetch(`http://localhost:${port}/logs`, {
         method: 'POST',
@@ -90,9 +85,7 @@ export class LlmLoggerWrapper {
     }
   }
 
-  /**
-   * Wraps an LLM streaming call to capture inference metadata and stream chunks.
-   */
+  
   static async wrapStreamCall(
     meta: LlmRequestMetadata,
     fn: () => Promise<any>,
@@ -159,7 +152,7 @@ export class LlmLoggerWrapper {
                   JSON.stringify(logPayload, null, 2) + 
                   '\n===============================================');
 
-      // Send the log payload to the Ingestion API endpoint
+      
       const port = process.env.PORT || 3001;
       fetch(`http://localhost:${port}/logs`, {
         method: 'POST',

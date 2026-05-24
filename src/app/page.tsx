@@ -51,13 +51,13 @@ export default function Home() {
     }
   };
 
-  // Generate unique session ID and fetch sessions list on mount
+  
   useEffect(() => {
     setSessionId(Math.random().toString(36).substring(2, 15) + '-' + Date.now());
     fetchSessions();
   }, []);
 
-  // Auto-scroll to bottom of chat
+  
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -66,7 +66,7 @@ export default function Home() {
     scrollToBottom();
   }, [messages, loading]);
 
-  // Handle auto-resizing of text area
+  
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
@@ -111,7 +111,7 @@ export default function Home() {
         throw new Error("Response body is not readable");
       }
 
-      // Add a placeholder bot message to stream tokens into
+      
       setMessages(prev => [...prev, { role: 'bot', text: '' }]);
 
       let accumulatedText = '';
@@ -124,7 +124,7 @@ export default function Home() {
         buffer += decoder.decode(value, { stream: true });
         const lines = buffer.split('\n');
         
-        // Save the last incomplete line to the buffer
+        
         buffer = lines.pop() || '';
 
         for (const line of lines) {
@@ -161,7 +161,7 @@ export default function Home() {
         }
       }
 
-      // Refresh sessions list after the stream completes and is logged in the backend
+      
       setTimeout(fetchSessions, 800);
 
     } catch (err: any) {
@@ -212,7 +212,7 @@ export default function Home() {
     }
   };
 
-  // Helper to format bot responses (handles basic newlines and backtick code blocks)
+  
   const formatText = (text: string) => {
     let parts = text.split(/(```[\s\S]*?```)/g);
     
@@ -226,7 +226,7 @@ export default function Home() {
         );
       }
       
-      // Handle inline code: `code`
+      
       const inlineParts = part.split(/`([^`]+)`/g);
       const renderedInline = inlineParts.map((subPart, subIdx) => {
         if (subIdx % 2 === 1) {
@@ -349,7 +349,7 @@ export default function Home() {
             ))
           )}
 
-          {/* Typing Indicator */}
+          {}
           {loading && (
             <div className="typing-indicator-container">
               <div className="bot-avatar-mini">🤖</div>
@@ -363,7 +363,7 @@ export default function Home() {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Input area */}
+        {}
         <div className="chat-input-area">
           <div className="model-selector-container">
             <label htmlFor="model-select" className="model-select-label">Model:</label>

@@ -108,7 +108,7 @@ export default function Dashboard() {
 
   return (
     <div className="app-container" style={{ flexDirection: 'column', height: '100vh', overflow: 'hidden' }}>
-      {/* Navigation Header */}
+      {}
       <header className="chat-header" style={{ width: '100%', borderBottom: '1px solid var(--glass-border)' }}>
         <div className="status-indicator">
           <span className="brand-logo" style={{ width: '20px', height: '20px', borderRadius: '4px' }}></span>
@@ -120,7 +120,7 @@ export default function Dashboard() {
         </div>
       </header>
 
-      {/* Main Dashboard Space */}
+      {}
       <div className="dashboard-workspace">
         <div className="dashboard-header-container">
           <div>
@@ -137,9 +137,9 @@ export default function Dashboard() {
           </button>
         </div>
 
-        {/* KPI Cards Grid */}
+        {}
         <div className="metrics-grid">
-          {/* Card 1: Total Throughput */}
+          {}
           <div className="kpi-card">
             <div className="kpi-icon-wrapper">
               <Activity size={20} />
@@ -151,7 +151,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Card 2: Avg Latency */}
+          {}
           <div className="kpi-card">
             <div className="kpi-icon-wrapper" style={{ backgroundColor: 'rgba(249, 115, 22, 0.1)', color: '#f97316' }}>
               <Clock size={20} />
@@ -163,7 +163,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Card 3: Success Rate */}
+          {}
           <div className="kpi-card">
             <div className="kpi-icon-wrapper" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', color: '#10b981' }}>
               <CheckCircle size={20} />
@@ -175,7 +175,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Card 4: Tokens Consumed */}
+          {}
           <div className="kpi-card">
             <div className="kpi-icon-wrapper" style={{ backgroundColor: 'rgba(168, 85, 247, 0.1)', color: '#a855f7' }}>
               <Cpu size={20} />
@@ -188,9 +188,9 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Recharts Graphs Area */}
+        {}
         <div className="charts-grid">
-          {/* Chart 1: Throughput (Requests per Day) */}
+          {}
           <div className="chart-card">
             <h2>
               <BarChart2 size={16} style={{ color: 'var(--accent-color)' }} />
@@ -212,7 +212,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Chart 2: Latency Trend */}
+          {}
           <div className="chart-card">
             <h2>
               <TrendingUp size={16} style={{ color: '#f97316' }} />
@@ -240,7 +240,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Chart 3: Errors */}
+          {}
           <div className="chart-card" style={{ gridColumn: 'span 2' }}>
             <h2>
               <AlertCircle size={16} style={{ color: '#ef4444' }} />
@@ -263,7 +263,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Model breakdown table card */}
+        {}
         <div className="table-card">
           <h2>
             <Cpu size={16} style={{ color: '#a855f7' }} />

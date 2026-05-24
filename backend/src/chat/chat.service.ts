@@ -28,7 +28,7 @@ export class ChatService {
 
         const genAI = new GoogleGenerativeAI(apiKey);
 
-        // Diagnostics: List available models to check if the key is authorized and active
+        
         try {
             this.logger.log("Running Gemini API Key diagnostics (listing models)...");
             const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
@@ -50,7 +50,7 @@ export class ChatService {
             );
         }
 
-        // Fallback candidates in order of preference
+        
         const modelCandidates = ['gemini-2.0-flash', 'gemini-2.5-flash', 'gemini-3.5-flash', 'gemini-flash-latest'];
         let lastError: any = null;
 
@@ -59,7 +59,7 @@ export class ChatService {
                 this.logger.log(`Attempting to generate response with model: ${modelName}`);
                 const model = genAI.getGenerativeModel({ model: modelName });
 
-                // Format history: Gemini expects { role: 'user' | 'model', parts: [{ text: string }] }
+                
                 const history = messages.map(msg => ({
                     role: msg.role === 'user' ? 'user' : 'model',
                     parts: [{ text: msg.text }]
@@ -67,7 +67,7 @@ export class ChatService {
 
                 const chat = model.startChat({ history });
                 
-                // Wrap the sendMessage call with the logging wrapper to capture inference metadata
+                
                 const result = await LlmLoggerWrapper.wrapCall(
                     {
                         sessionId,
@@ -84,11 +84,11 @@ export class ChatService {
             } catch (error: any) {
                 this.logger.warn(`Model ${modelName} failed or unavailable: ${error.message}`);
                 lastError = error;
-                // Continue loop to try the next model
+                
             }
         }
 
-        // If all candidates fail
+        
         this.logger.error("All Gemini model candidates failed to respond.");
         throw lastError;
     }
@@ -308,7 +308,7 @@ export class ChatService {
             return;
         }
 
-        // Default: gemini
+        
         const apiKey = this.configService.get<string>('GEMINI_API_KEY');
         if (!apiKey || apiKey === 'your_actual_gemini_api_key_here' || apiKey.includes('your_') || apiKey === 'dummy-key') {
             this.logger.warn("Gemini API key missing or placeholder. Running Gemini simulated fallback.");
